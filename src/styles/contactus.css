@@ -1,0 +1,23 @@
+ul{
+    background-color:rgb(255,169,0);
+    border-radius: 10px;
+    color: aliceblue;
+    padding: 5px;
+    margin-right: 50px;
+    margin: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+h1{
+    border-bottom: 1px solid white;
+    margin: 10px;
+    font-size: 28px;
+}
+li{
+    text-decoration: none;
+    list-style-type: none;
+    padding: 5px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

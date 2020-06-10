@@ -1,0 +1,300 @@
+body{
+    background-color: black;
+}
+
+div.feedback_page{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(90deg, rgba(226,192,1,1) 40%, rgba(11,157,255,1) 80%);
+    opacity: 0.9;
+}
+
+div.feedback_section{
+    opacity: 1;
+    padding: 30px;
+    border-radius: 35px;
+    background-color: rgb(56, 56, 56);
+    display: inline-block;
+    box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.767);
+    margin: 10vh;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    margin: 12px;
+    color: white;
+    font-size: 4rem;
+    padding: 3px;
+    border-bottom:1px solid white;
+}
+
+.form_container{
+    max-width: 26rem;
+    padding: 10px;
+    margin: 0;
+    background-color:rgb(226, 192, 1) ;
+    margin-top: 25px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.img{
+    display: inline;
+    max-width: 22rem;
+}
+
+input[type=text]{
+    font-size: 18px;
+    border: 1px solid rgb(56, 56, 56);
+    background-color: rgb(56, 56, 56);
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+    width: 22rem;
+    color: rgb(177, 177, 177);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea{
+    color: rgb(177, 177, 177);
+    background-color: rgb(56, 56, 56);
+    font-size: 18px;
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 10px;
+    padding: 20px;
+    width: 22rem;
+    height: 25vh;
+    overflow: scroll;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button[type=submit]{
+    margin: auto;
+    width: 24rem;
+    background: linear-gradient(90deg, rgba(179,46,0,1) 0%, rgba(255,82,0,1) 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h6{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 17px;
+    padding: 0%;
+    margin: 0;
+    display: grid;
+    text-align: center;
+    padding-left: 140px;
+    font-weight: 500;
+}
+*:focus{
+    outline: none;
+}
+button[type=submit]:hover,input[type=submit]:focus {
+    background-color: rgb(179, 49, 2);
+    border: none;
+}
+
+.error{
+    border: 1px solid red;
+}
+
+img{
+    max-width: 600px;
+    max-height: 600px;
+    z-index: -5;
+    float: left;
+    transform: scaleX(-1);
+}
+
+h5{ 
+    margin: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(75, 75, 75);
+    text-align: left;
+    font-size: 22px;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(177, 177, 177);
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(177, 177, 177);
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(177, 177, 177);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: rgb(177, 177, 177) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+import React, { Component} from 'react';
+import styles from '../styles/addfeedback.module1.css';
+import feedback_img from '../images/flame-5-cropped.png'
+
+class AddFeedback extends Component{
+
+    constructor(props) {
+        super(props);
+        this.state = { 
+            feedback_name: '',
+            feedback_email: '',
+            feedback_message: '',
+            feedback_success: false,
+            width: window.innerWidth,
+            height: window.innerHeight,
+            removed: null
+        };
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+  
+    updateWindowDimensions() {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+        console.log(this.state.width)
+        var img
+        if((this.state.width <= 1000) && !this.state.removed){
+            img = document.getElementById('image')
+            img.parentNode.removeChild(img)
+            this.setState({removed : true})
+        }
+    }
+
+    validate = () => {
+        var valid = false;
+        if(this.state.feedback_name){
+            valid = true
+        }
+        return valid
+    }
+
+    newFeedback = () => {
+        this.setState({ feedback_success: false })
+    }
+    myChangeHandler = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        this.setState({[nam]: val});
+        
+    }
+
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(this.state)
+
+        //TODO: CALL FORM VALIDATION HERE, PASS ALL STATES
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.state)
+
+        };
+        fetch('http://localhost:3002/feedback', requestOptions)
+        .then(response => {
+            response.json()
+            if(!response.ok){
+                throw new Error("The response was not ok")
+            }else{
+                this.setState({ feedback_success: true,
+                    feedback_name: '',
+                    feedback_email: '',
+                    feedback_message: '',
+                })
+            }
+            console.log(this.state.feedback_success)
+        })
+        .catch(error => (console.log("Error with the fetch : " + error)));
+    }
+
+    render(){
+        const arrow_style = {
+            fontSize:"24px",
+            marginLeft: '120px',
+            color: "white"
+        }
+        if(this.state.feedback_success){
+            return(
+                //TODO: ANIMATION TO A HAPPY FACE OR TICK
+                //LOTS OF ANIMATION IMAGES
+                <div className="submitted"> 
+                    <h3>Submitted</h3>
+                    <button onClick={this.newFeedback.bind(this)}>Submit More Feedback</button>
+                </div>
+            )
+        }else{
+            return(
+                <div className = {styles.feedback_page}>
+                    <div className = {styles.feedback_section}>
+                        <h2>We value your feedback! </h2>
+
+                        <div className = {styles.form_container}>
+                            <form method="POST" onSubmit={this.handleSubmit}>
+                                <h5>Fill out the form and we'll be in touch as soon as possible! </h5>
+                                <input id="feedback_name" placeholder= "Name" value = {this.state.feedback_name} name="feedback_name" type="text" onChange={this.myChangeHandler}/>
+                                <br/>
+                                <input id="feedback_email" placeholder="Email" value= {this.state.feedback_email} name = "feedback_email" type="text" onChange={this.myChangeHandler}/>
+                                <br/>
+                                <textarea id="feedback_message" placeholder="Message..." value= {this.state.feedback_message} name = "feedback_message" type="text" onChange={this.myChangeHandler}></textarea>
+                                <br/>
+                                <button type="submit" value="Send">
+                                    <h6>Send</h6>   
+                                    <i class="material-icons" style={arrow_style} >arrow_forward</i>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div className = {styles.img}>
+                            <img src={feedback_img} alt = "Feedback Side" id='image'></img>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    }
+}
+
+export default AddFeedback;

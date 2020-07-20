@@ -1,7 +1,5 @@
 import React, { Component} from 'react';
-import styles from '../styles/addfeedback1.module.css';
-import feedback_img from '../images/flame-5-cropped.png'
-import ContactUs from '../components/ContactUs'
+import styles from '../styles/addfeedback.module.css';
 
 class AddFeedback extends Component{
 
@@ -14,7 +12,6 @@ class AddFeedback extends Component{
             feedback_success: false,
             width: window.innerWidth,
             height: window.innerHeight,
-            removed: null
         };
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
     }
@@ -24,26 +21,66 @@ class AddFeedback extends Component{
         window.addEventListener('resize', this.updateWindowDimensions);
     }
   
-    componentWillUnmount() {
+    componentWillMount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
+        
     }
   
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         console.log(this.state.width)
-        var img
-        if((this.state.width <= 10) && !this.state.removed){
-            img = document.getElementById('image')
-            img.parentNode.removeChild(img)
-            this.setState({removed : true})
-        }
+        if(window.innerWidth <= "650"){
+            document.getElementById('img').style.display = "none";
+            document.getElementById('form').style.border = "none";
+        }else{
+            document.getElementById('img').style.display = "block";
+            document.getElementById('form').style.border = "1px solid white";
+        }   
     }
 
     validate = () => {
         var valid = false;
-        if(this.state.feedback_name){
-            valid = true
+
+        //validate message
+        if(this.state.feedback_message){
+            var msg = document.getElementById('feedback_message')
+            msg.style = "border-bottom: 1px solid green"
+            if(this.state.feedback_message.length < 5){
+                msg.style = "border-bottom: 1px solid red"
+            }
         }
+        //validate fname
+        if(this.state.feedback_name){
+            var reg = /^[a-zA-Z ]+$/;
+            var name = document.getElementsByName('feedback_name')[0]
+            name.style = "border-bottom: 1px solid green"
+
+            if(reg.test(this.state.feedback_name)){
+                valid = true
+            }else{
+                valid = false
+                name.style = 'border-bottom: 1px solid red'
+            }
+        }
+        if(!valid){
+            return valid
+        }
+        //validate email
+        if(this.state.feedback_email){
+            var re = /^(([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-.]+)@{[a-zA-Z0-9_\-.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/;
+            var email = document.getElementById('feedback_email')
+            email.style = 'border-bottom: 1px solid green'
+            if(re.test(this.state.feedback_email)){
+                valid =  true;
+            }else{
+                valid = false
+                email.style = 'border-bottom: 1px solid red'
+            }
+        }
+        if(!valid){
+            return valid
+        }
+        
         return valid
     }
 
@@ -54,93 +91,80 @@ class AddFeedback extends Component{
         let nam = event.target.name;
         let val = event.target.value;
         this.setState({[nam]: val});
-        
+        this.validate()
     }
 
-
     handleSubmit = (event) => {
-        event.preventDefault()
-        console.log(this.state)
 
-        //TODO: CALL FORM VALIDATION HERE, PASS ALL STATES
+        event.preventDefault()
+        if(!this.validate()){
+            return
+        }
+        const msg = {
+            feedback_name: this.state.feedback_name,
+            feedback_email: this.state.feedback_email,
+            feedback_message: this.state.feedback_message,
+        }
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify(msg)
 
         };
         fetch('http://localhost:3002/feedback', requestOptions)
         .then(response => {
+            console.log("Hre")
             response.json()
             if(!response.ok){
                 throw new Error("The response was not ok")
             }else{
-                this.setState({ feedback_success: true,
+                this.setState({ 
+                    feedback_success: true,
                     feedback_name: '',
                     feedback_email: '',
                     feedback_message: '',
                 })
             }
-            console.log(this.state.feedback_success)
+            if(this.state.feedback_success){
+                this.happyFace()
+            }
+            
         })
         .catch(error => (console.log("Error with the fetch : " + error)));
     }
 
     render(){
-        const arrow_style = {
-            fontSize:"24px",
-            marginLeft: '100px',
-            color: "white",
-            //EDIT
-            display: "inline"
-        }
-        if(this.state.feedback_success){
-            return(
-                //TODO: ANIMATION TO A HAPPY FACE OR TICK
-                //LOTS OF ANIMATION IMAGES
-                <div className="submitted"> 
-                    <h3>Submitted</h3>
-                    <button onClick={this.newFeedback.bind(this)}>Submit More Feedback</button>
-                </div>
-            )
-        }else{
-            return(
-                <div className = {styles.feedback_page}>
-                    <div className = {styles.feedback_section}>
-                        <h2>We value your feedback! </h2>
+        return(
+            <div className = {styles.feedback_page} id="feedback_page">
+                <div className={styles.container}>
 
-                        <div className = {styles.form_container}>
-                            <form method="POST" onSubmit={this.handleSubmit}>
-                                <h5>Feedback! </h5>
-                                <div id = {styles.triangletopleft}></div>
-                                <input id={styles.feedback_name} placeholder= "Name" value = {this.state.feedback_name} name="feedback_name" type="text" onChange={this.myChangeHandler}/>
-                                <br/>
-                                <input id="feedback_email" placeholder="Email" value= {this.state.feedback_email} name = "feedback_email" type="text" onChange={this.myChangeHandler}/>
-                                <br/>
-                                <textarea id="feedback_message" placeholder="Message..." value= {this.state.feedback_message} name = "feedback_message" type="text" onChange={this.myChangeHandler}></textarea>
-                                <br/>
-                                <button type="submit" value="Send">
-                                    <h6>Send</h6>   
-                                    <i class="material-icons" style={arrow_style} >arrow_forward</i>
-                                </button>
-                            </form>
+                    <div id='img' className={styles.img}>
+                        <p>Send us some feedback,</p>
+                        <h1>we'll get in touch as soon as possible!</h1>
+                        <h2>2</h2>
+                    </div>
+
+                    <form id='form' method="POST" onSubmit={this.handleSubmit} className={styles.form} autoComplete="off">
+                        <div className={styles.banner} id="banner">
+                            <h1 className='heading'>Feedback!</h1>
                         </div>
                         
-                        <div className = {styles.img}>
-                            
-                        </div>
-                    </div>
+                        <input className={styles.feedback_name} placeholder= "Name" value = {this.state.feedback_name} name="feedback_name" type="text" onChange={this.myChangeHandler} />
+                        <input id="feedback_email" placeholder="Email" value= {this.state.feedback_email} name = "feedback_email" type="text" onChange={this.myChangeHandler}/>
+                        <textarea id="feedback_message" placeholder="Message..." value= {this.state.feedback_message} name = "feedback_message" type="text" onChange={this.myChangeHandler}></textarea>
+                        
+                        <button className={styles.send_button} type="submit" value="Send">
+                            <h3>Send</h3>   
+                            <i className="material-icons" id = "arrow_f">arrow_forward</i>
+                        </button>
+                    </form>
 
-                    <div className={styles.contact}>
-                        <ContactUs/>
-                    </div>
+
+
                 </div>
-            );
-        }
+            </div>
+        );
     }
 }
 
 export default AddFeedback;
-
-//TODO: RETURN THE FEEDBACK IMG TO THE STYLES.IMG DIV
-//<img src={feedback_img} alt = "Feedback Side" id='image'></img>

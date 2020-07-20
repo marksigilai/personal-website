@@ -1,0 +1,125 @@
+.landing{
+    display: block;
+    height: 100vh;
+    background: black;
+    background-size: cover;
+    overflow: hidden;
+}
+.info_container{
+    position: fixed;
+    text-align: left;
+    z-index: 1;
+    display: block;
+    top: 40vh;
+    left: max(15vw, 30px);
+    width: auto;
+    text-align: center;
+}
+.landing h3{
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    background-color: darkorange;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: min(25px, 4vw);
+    font-weight: 900;
+    margin: 5px;
+    vertical-align: top;
+}
+.title{
+    display: inline-block;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 900;
+    font-size: max(7vw, 40px);
+    text-align: left;
+    background-color: rgb(202, 202, 202);
+    padding: 5px;
+}
+
+.subtitle{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(192, 192, 192);
+    font-weight: 400;
+    font-size: min(25px, 5vw);
+    text-align: right;
+    border-radius: 5px;
+    margin: 5px 5px 0 0;
+}
+
+
+
+.img1{
+    background-image: url('../images/namcha.jpg');
+    opacity: 0.6;
+    width: 700px;
+    height: 800px;
+    position: fixed;
+    top: 80px;
+    right: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+}
+.img2{
+    background-image: url('../images/ricardo.jpg');
+    opacity: 0.3;
+    width: 600px;
+    height: 2000px;
+    position: fixed;
+    top: 0px;
+    left: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 0;
+}
+
+.btn{
+    margin-top: 30px;
+    display: inline-block;
+    background-color: darkorange;
+    padding: min(8px, 2vw);
+    border: 4px solid darkorange;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: black;
+    position: fixed;
+    top: 70vh;
+    height: 6vh;
+    left: 45vw;
+    z-index: 0;
+    background-size: 200% 200%;
+    background-image: linear-gradient(to bottom, transparent 50%, rgb(189, 104, 0) 50%);
+    transition: background-position 0.7s;
+
+}
+.btn:hover{
+    background-position: 0% -101%;
+}
+
+.landing .btn h4{
+    display: block;
+    font-size: min(18px, 4vw);
+    font-weight: 600;
+    margin-bottom: 6vh;
+}
+.landing h3 span{
+    font-size: 12px;
+    display: block;
+    color: black;
+    font-weight: 900;
+}
+
+.landing .btn span{
+    font-size: 30px;
+    margin:0;
+    padding:0;
+    color: white;
+    animation: bounce 1s ease-in-out 3s forwards infinite;
+}
+@keyframes bounce{
+    0% {transform: translateY(5px);}
+    50% {transform: translateY(-5px);}
+    100% {transform: translateY(5px);}
+}

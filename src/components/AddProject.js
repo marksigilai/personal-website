@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 
-
 class AddProject extends Component{
 
     constructor(props) {
@@ -46,7 +45,6 @@ class AddProject extends Component{
             }
         })
         .catch(error => (console.log("Error with the fetch : " + error)));
-
 
     }
     somefuncname(){

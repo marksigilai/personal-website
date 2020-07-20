@@ -1,0 +1,67 @@
+.container{
+    color: black;
+    margin: 0;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 5;
+    background-color: rgb(24, 24, 24);
+
+}
+
+.project{
+    border-bottom: 1px solid black;
+    margin: 5vh;
+    padding: 10px;
+    display: inline-block;
+    text-align: left;
+    overflow: hidden;
+    background-color: rgb(15, 15, 15);
+    width: 40vw;
+    box-shadow: -20px 20px 0px 0px darkorange;
+    transition: box-shadow 0.3s ease-out;
+    border: 2px solid darkorange;
+}
+.project:hover{
+    box-shadow: -25px 25px 0px 0px darkorange;
+
+}
+
+.project .titlecontainer .title{
+    color: black;
+    padding: 10px;
+    font-weight: 600;
+    background-color: white;
+}
+
+.project .titlecontainer{
+    color: black;
+    font-weight: 600;
+}
+
+.paragraph{
+    margin: 10px;
+    color: white;
+
+}
+
+.languages{
+    margin: 10px;
+    display: inline;
+}
+.moreinfo{
+    margin: 10px;
+    float: right;
+    color: black;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    padding: 6px;
+    border-radius: 16px;
+    font-size: 13px;
+    border: 1px solid black;
+    width: 90px;
+}
+.moreinfo:hover{
+    color: black;
+}

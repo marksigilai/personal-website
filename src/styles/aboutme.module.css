@@ -1,0 +1,58 @@
+.container{
+    background-color: rgb(24, 24, 24);
+    position: relative;
+    z-index: 4;
+    box-shadow: 20px 4px 28px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 30px;
+}
+.landing{
+    display: inline-block;
+    width: 60vw;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background-color: rgb(15, 15, 15);
+    padding: 30px;
+    margin: max(30px, 8vw, 8vh);   
+}
+
+.landing h1{
+    color: white;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    margin: auto;
+}
+.landing h1::after{
+    content: ' ';
+    display: block;
+    width: 40px;
+    height: 5px;
+    color: white;
+    background-color: darkorange;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.landing h2{
+    color: white;
+    font-weight: 100;
+    margin: 10px;
+
+}
+.landing p{
+    color: white;
+    display: inline-block;
+    margin: 10px;
+}
+.skills{
+    background-color: black;
+}
+.skills .skill{
+    background-color: white;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    min-width: 30px;
+    border-radius: 5px;
+}

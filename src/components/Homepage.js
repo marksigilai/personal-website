@@ -1,9 +1,10 @@
 import React, { Component} from 'react';
 import Project from './Project';
 import AddFeedback from './AddFeedback';
-import Navbar from './Navbar';
-import Login from './Login';
-import '../styles/homepage.css'
+import Landing from './Landing';
+import AboutMe from './AboutMe'
+import styles from '../styles/homepage.css'
+import ContactUs from './ContactUs';
 
 class Homepage extends Component{
     constructor(props){
@@ -12,7 +13,7 @@ class Homepage extends Component{
             projects: []
         }
     }
-    componentDidMount(){
+    componentWillMount(){
         fetch('http://localhost:3002/projects')
         .then(res => res.json())
         .then((data) =>{
@@ -25,13 +26,12 @@ class Homepage extends Component{
 
     render(){
         return(
-            <div className="Homepage">
-                <h1>Homepage</h1>
-                <Navbar />
-                <Login/>
+            <div className={styles.homepage}>
+                <Landing/>
+                <AboutMe/>
                 <Project projects={this.state.projects} />
                 <AddFeedback />
-                
+                <ContactUs/>
             </div>
             
         );

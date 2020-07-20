@@ -1,7 +1,7 @@
 class Auth{
 
     constructor(){
-        this.authenticated = true
+        this.authenticated = false
         this.password = ""
     }
 

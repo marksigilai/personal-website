@@ -28,14 +28,6 @@ class AddFeedback extends Component{
   
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-        console.log(this.state.width)
-        if(window.innerWidth <= "650"){
-            document.getElementById('img').style.display = "none";
-            document.getElementById('form').style.border = "none";
-        }else{
-            document.getElementById('img').style.display = "block";
-            document.getElementById('form').style.border = "1px solid white";
-        }   
     }
 
     validate = () => {
@@ -136,18 +128,12 @@ class AddFeedback extends Component{
     render(){
         return(
             <div className = {styles.feedback_page} id="feedback_page">
-                <div className={styles.container}>
-
                     <div id='img' className={styles.img}>
-                        <p>Send us some feedback,</p>
-                        <h1>we'll get in touch as soon as possible!</h1>
-                        <h2>2</h2>
+                        <h1>feedback</h1>
+                        <p>Send me some feedback, I'll be in touch as soon as possible!</p>
                     </div>
 
                     <form id='form' method="POST" onSubmit={this.handleSubmit} className={styles.form} autoComplete="off">
-                        <div className={styles.banner} id="banner">
-                            <h1 className='heading'>Feedback!</h1>
-                        </div>
                         
                         <input className={styles.feedback_name} placeholder= "Name" value = {this.state.feedback_name} name="feedback_name" type="text" onChange={this.myChangeHandler} />
                         <input id="feedback_email" placeholder="Email" value= {this.state.feedback_email} name = "feedback_email" type="text" onChange={this.myChangeHandler}/>
@@ -159,9 +145,6 @@ class AddFeedback extends Component{
                         </button>
                     </form>
 
-
-
-                </div>
             </div>
         );
     }

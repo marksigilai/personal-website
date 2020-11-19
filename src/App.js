@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/app.css';
 import Homepage from './components/Homepage';
-import Backend from './Backend'
+import Backend from './components/Backend'
 import Resume from './components/Resume'
 import AboutMePage from './components/AboutMePage'
 import Login from './components/Login'

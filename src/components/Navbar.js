@@ -64,7 +64,7 @@ class Navbar extends Component{
 
   async handleClick(victim){
     await victim
-    TweenMax.to(victim.current, .4, {css:{color: 'grey', transform: 'scale(1.2)'}, ease:Power3.easeInOut, delay:0})
+    TweenMax.to(victim.current, .4, {css:{color: 'black', transform: 'scale(1.3)'}, ease:Power3.easeInOut, delay:0})
     if(victim !== this.home){
       TweenMax.to(this.home.current, .4, {css:{color:'white', transform: 'scale(1.0)'}, ease:Power3.easeInOut, delay:0})      
     }

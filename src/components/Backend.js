@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import SingleItem from './components/SingleItem'
-import auth from './auth'
-import AddProject from './components/AddProject'
+import SingleItem from './SingleItem'
+import auth from '../auth'
+import AddProject from './AddProject'
+import styles from '../styles/backend.module.css'
 
 class Backend extends Component{
 
@@ -31,11 +32,11 @@ class Backend extends Component{
   render() {
     console.log(this.state.feedbacks)
     return (
-        <div className="backend">
+        <div className={styles.main}>
             <table>
                 <thead>
                     <tr>
-                        <th>Projects:</th>
+                        <th>PROJECT</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,7 +49,7 @@ class Backend extends Component{
             <table>
                 <thead>
                     <tr>
-                        <th>Feedback:</th>
+                        <th>FEEDBACK</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +59,8 @@ class Backend extends Component{
                 </tbody>
                 
             </table>
-            <button onClick={this.performLogout.bind(this)}>Logout</button>
+            <button className={styles.btn} onClick={this.performLogout.bind(this)}>Logout</button>
+            
             <AddProject/>
         </div>
         

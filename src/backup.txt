@@ -298,3 +298,431 @@ class AddFeedback extends Component{
 }
 
 export default AddFeedback;
+
+
+
+
+
+........................................................
+
+
+
+
+
+
+import React, { Component } from 'react';
+import styles from '../styles/landing.module.css'
+import  { Power3, Power1, gsap, Linear, TimelineMax} from 'gsap'
+
+
+class Landing extends Component{
+  constructor(props){
+    super(props)
+    this.state = [
+
+    ]
+    this.handles = React.createRef()
+    this.subheading = React.createRef()
+    this.main = React.createRef()
+    this.briefcase = React.createRef()
+    this.arrow = React.createRef()
+    this.btn = React.createRef()
+    this.landing = React.createRef()
+    this.middleground = React.createRef()
+    this.foreground = React.createRef()
+
+  }
+
+
+  async componentDidMount() {
+    await this.handles.current
+    await this.subheading.current
+    await this.main.current
+    await this.btn.current
+    await this.middleground.current
+
+
+ 
+    var tl = new TimelineMax({
+      repeat: -1
+    });
+
+    tl.to(this.main.current, 200, {
+      backgroundPosition: "-2247px bottom",
+      force3D:true,
+      rotation:0.01,
+      z:0.01,
+      //autoRound:false,
+      ease: Linear.easeNone
+    });
+
+    var tl2 = new TimelineMax({
+      repeat: -1
+    });
+
+    tl2.from([this.briefcase.current, this.handles.current], 1, {
+      y: -20,
+      ease: Power1.easeInOut
+    }).to([this.briefcase.current, this.handles.current], 1, {
+      y: -20,
+      ease: Power1.easeInOut
+    });
+
+    var tl3 = new TimelineMax({
+      repeat: -1
+    });
+    
+    tl3.to(this.middleground.current, 60, {
+      backgroundPosition: "-2247px bottom",
+      force3D:true,
+      rotation:0.01,
+      z:0.01,
+      //autoRound:false,
+      ease: Linear.easeNone
+    });
+
+    var tl4 = new TimelineMax({
+      repeat: -1
+    });
+    
+    tl4.from(this.foreground.current, 1, {
+      backgroundSize: "370px",
+      ease: Power1.easeInOut
+    }).to(this.foreground.current, 1, {
+      backgroundSize: "370px",
+      ease: Power1.easeInOut
+    });
+
+
+
+
+
+
+
+      
+    
+  }
+
+
+  async handleHover(){
+
+  }
+
+
+  render() {
+    return (
+        <div ref={this.main} className={styles.main}>
+
+          <div className={styles.hand}></div>
+
+          <span ref={this.handles} className={styles.handles}>
+            <span className={styles.inset}></span>
+          </span>
+
+          <div ref={this.briefcase} className={styles.landing}>
+            <div className={styles.info_container}>
+              <h3 ref={this.hello}><span>HELLO</span> I'm</h3>
+              <h1 ref={this.title} className={styles.title}>Mark Sigilai</h1>
+              <h2 ref={this.subheading} className={styles.subtitle}>Junior software developer</h2>
+              <div ref={this.strap} className={styles.strap1}></div>
+              <div ref={this.strap} className={styles.strap2}></div>
+            </div>   
+          </div>
+          
+          <div ref={this.middleground} className={styles.middleground}></div>
+          <div ref={this.foreground}  className={styles.foreground}></div>
+
+
+          <button id="btn" ref={this.btn} className={styles.btn} type='button'>
+            <h4>EXPLORE</h4>
+            <span ref={this.arrow} class="material-icons">keyboard_arrow_down</span>
+          </button>
+
+
+
+          
+
+        </div>
+    )
+  }
+}
+
+export default Landing;
+
+
+
+
+--------------------------------------------------------------------
+
+
+
+
+
+
+import React, { Component} from 'react';
+import propTypes from 'prop-types'
+import styles from '../styles/project.module.css'
+import  { Power3, TimelineLite} from 'gsap'
+import { CSSTransition } from 'react-transition-group';
+
+
+class Project extends Component{
+
+    constructor(props){
+        super(props)
+
+        this.state = {
+            key : null
+        }
+
+
+    }
+    
+
+    animate(id, index){
+ 
+        this.setState({key : id})
+
+        var tl1 = new TimelineLite()
+        var tl2 = new TimelineLite()
+
+        var paragraphs = document.getElementsByName('paragraph')
+        var infos = document.getElementsByName('information')
+    
+        
+        tl1.to(infos[0], 3, {x:-200, opacity: 0, ease:Power3.easeInOut})
+    
+        //tl2.from(infos[0], 3, {x:-200, opacity: 0, ease:Power3.easeInOut})
+    }
+
+    render(){
+
+        
+
+        return(
+            <div className={styles.container}>
+                <div className={styles.banner}>
+                    <span class="material-icons">explore</span>
+                    <h1>...my projects</h1>
+                    <p> a list of some of the recent school and personal projects I have worked on.</p>
+                </div>
+
+                <div className={styles.wrapper}>
+                    {this.props.projects.map((project, index) => {
+                        console.log(index)
+                        return(
+                            <div className={styles.project} key = {project.id}>
+                                <div className={styles.project_number}>#{index+1}</div>
+                                
+                                <h2 className={styles.title}>{ project.title } </h2>
+
+                                
+                                    {!(this.state.key === project.id) && 
+                                        <CSSTransition key={project.id} timeout={10000} classNames="slide" >
+                                            <p name="paragraph" className={styles.paragraph}> {project.description} </p>
+                                            <div className={styles.btn}>
+                                                <button type='button' onClick = {() => this.setState({key:project})}>More Info</button>
+                                                <span class="material-icons">
+                                                    keyboard_arrow_right
+                                                </span>
+                                            </div>  
+                                        </CSSTransition>
+                                            
+                                    }
+                                
+
+                                
+                                    {this.state.key === project.id && 
+                                        <CSSTransition key={project.id} timeout={1000} classNames="slide">
+                                            <div name="information" className={styles.info} >{project.information}</div>
+                                            <div className={styles.btn}>
+                                                <span class="material-icons">
+                                                    keyboard_arrow_left
+                                                </span>
+                                                <button type='button' onClick = {() => this.setState({key : null})}>Back</button>
+                                            </div>
+                                        </CSSTransition>
+                                    }
+                            </div>
+                        )
+
+                    }
+                        
+                    )}
+                </div>
+            </div>
+        );
+    }
+}
+
+Project.propTypes = {
+    projects: propTypes.array.isRequired
+}
+
+export default Project;
+
+
+
+--------------------------
+
+
+
+
+
+const express = require('express');
+const app = express();
+const mysql = require('mysql');
+
+const cors = require('cors')
+const bodyparser = require('body-parser')
+app.use(cors())
+app.use(bodyparser.json())
+
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
+
+//TODO: FORM VALIDATION IN NODEJS?
+
+
+const connection = mysql.createConnection({
+    host : "localhost",
+    user : "root",
+    password : "123qwa",
+    database : "personal_website"
+})
+
+//root
+app.get("", (req, resp) => {
+    resp.status(200).json("Nothing to send")
+})
+
+//root
+app.post("", (req, resp) => {
+    resp.status(200).json("Nothing to send")
+})
+
+//get feedback or project by specific id
+app.get("/:page/:id", (req, resp) => {
+    const connection = mysql.createConnection({
+        host : "localhost",
+        user : "root",
+        password : "123qwa",
+        database : "personal_website"
+    })
+    const query = "SELECT * FROM " + req.params.page + " WHERE id = " + req.params.id
+    connection.query(query, (err, rows, fields) => {
+        if(err){
+            resp.sendStatus(500)
+            resp.end()
+            return
+        }else{
+            resp.sendStatus(200)
+            resp.json(rows)
+            resp.end()
+        }
+        
+    })
+})
+//get the entire feedback or projects database
+app.get("/:page", (req, resp) => {
+    const query = "SELECT * FROM " + req.params.page 
+    connection.query(query, (err, rows, fields) => {
+        if(err){
+            resp.status(500).json("Error getting the page")
+            resp.end()
+        }else{
+            resp.status(200).json(rows)
+            resp.end()
+        }
+        
+    })
+})
+
+//insert a project to projects
+app.post("/projects", (req, resp) => {
+    console.log("Here4")
+    const query = "INSERT INTO projects (title, description, information, url) VALUES ( '" + req.body.project_title + "' , '" + req.body.project_description + "' , '" + req.body.project_information + "' , '" + req.body.project_url + "' )"
+    console.log(query)
+    connection.query(query, (err, rows, fields) => {
+        if(err){
+            resp.status(500).json("error with the post")
+            resp.end()
+        }else{
+            resp.status(200).json("Successfully entered the data to projects")
+            resp.end()
+            console.log("Successfully entered the data to projects")
+        }
+    })
+})
+
+//insert a value for feedback to feedback
+app.post("/feedback", (req, resp) => {
+    console.log("Here5")
+    var name = req.body
+    console.log(name)
+    const query = "INSERT INTO feedback (name, email, message)  VALUES ( '" + req.body.feedback_name + "' , '" + req.body.feedback_email + "' , '" + req.body.feedback_message + "' )"
+    connection.query(query, (err, rows, fields) => {
+        if(err){
+            console.log("There was an error with the insert")
+            resp.status(500).json("There was an error with the insert")
+            resp.end()
+        }else{
+            console.log("Successfully entered the data to db: feedback")
+            resp.status(200).json("Successfully entered the data to feedback")
+            resp.end()
+        }
+        //resp.redirect('/')
+    })
+})
+//delete a value from a database 
+app.delete(("/:page/:id"), (req, resp) => {
+    console.log("Here6")
+    var db = req.params.page
+    var id = req.params.id
+    console.log("This is the db "+ db + " and the id "+ id)
+    var query  = "DELETE FROM " + db + " WHERE id = '" + id + "'"
+    connection.query(query, (err, results, fields) => {
+        if(err){
+            resp.status(500).json("There was an error with the delete")
+            console.log("There was an error with the delete")
+            resp.end()
+        }else{
+            console.log("Successfully deleted")
+            resp.status(200).json("Successfully deleted")
+            resp.end()
+        }
+    })
+
+})
+
+//validate a password
+app.post(("/login"),(req, resp) => {
+    var query = "SELECT * FROM passwords WHERE username='sigilai'"
+    console.log(req.body.password)
+    connection.query(query, (error, results, fields) => {
+        if(error){
+            resp.status(500).json("There was a password error")
+            console.log("There was a password error")
+            resp.end()
+        }else{
+            //if the passwords match
+            console.log(JSON.stringify(results) +  " and " + req.body.password)
+
+            if(req.body.password == results[0].password){
+                resp.status(200).json({outcome : 'match'})
+                resp.end()
+            }
+            else{
+                resp.status(200).json({outcome : "no match"})
+                resp.end()
+            }
+        }
+    })
+
+})
+
+
+app.listen(3002, () => {})

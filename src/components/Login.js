@@ -93,7 +93,7 @@ class Login extends Component{
                     </div>
                     <form id='form' ref={this.login_form} className={styles.login_form} method='POST' onSubmit={this.handleSubmit}>
                         <h1 className={styles.signin}>
-                            <span className={styles.sp1}>Sign</span>
+                            <span className={styles.sp1}>Sign </span>
                             <span className={styles.sp2}>In</span>
                         </h1>
                         <button type='button' className={styles.close_login} onClick={this.closeLogin}>

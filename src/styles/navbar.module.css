@@ -1,7 +1,7 @@
 .desktop_navbar{
-    background-color: black;
+    background-color: transparent;
     display: block;
-    position: fixed;
+    position: absolute;
     z-index: 5;
     width: 100vw;
     height: 55px;
@@ -37,14 +37,14 @@
 }
 .desktop_navbar li .link:hover:after {
     width: 100%;
-    background: rgb(194,194,194);
+    background: white;
 }
 .desktop_navbar li .link{
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
     color: white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 .desktop_navbar .login_button_container{
@@ -59,7 +59,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     background-color: transparent;
-    font-size: 14px;
+    font-size: 16px;
     border: none;
     margin: 5px;
     transition: 0.3s ease-in-out;

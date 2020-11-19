@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import styles from '../styles/singleitem.module.css'
 
 //render single feedback or project
 class SingleItem extends Component{
@@ -29,24 +30,15 @@ class SingleItem extends Component{
     
 
     render(){
-        if(this.state.visibility){
             return(
-                <tr className = "item">
-                    <td>{(this.state.visibility && this.props.item.title) || (this.state.visibility && this.props.item.name)}</td>
+                <tr className = {styles.item} style={this.state.visibility === false ? {textDecoration:"line-through"} : null}>
+                    <td>{this.props.item.title || this.props.item.name}</td>
                     <td>{this.props.type==="feedback" && this.props.item.message}</td>
                     <td>
-                        <button onClick={this.deleteItem.bind(this)}>Delete </button>
+                        <button className={styles.btn} onClick={this.deleteItem.bind(this)}>Delete </button>
                     </td>
                 </tr>
             )
-        }else{
-            return(
-                //Do something - either a line through?
-                <tr>
-                    <td>Done</td>
-                </tr>
-            )
-        }
     }
 }
 

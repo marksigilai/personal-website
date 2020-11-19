@@ -1,67 +1,185 @@
 .container{
-    color: black;
     margin: 0;
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     position: relative;
     z-index: 5;
-    background-color: rgb(24, 24, 24);
+    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
+}
+.banner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: max(4vw, 15px);
+
+    width: 80vw;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.banner span{
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgb(206, 206, 206);
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.banner h1{
+    color: darkorange;
+    font-size: max(min(6rem, 8.6vw), 4rem);
+    display: inline;
+    align-items: center;
+    text-align: left;
+    font-weight: 600;
+    text-align: center;
+}
+
+.banner p{
+    color: white;
+    font-size: max(min(33px, 1.6vw), 23px);
+    text-align: center;
+    font-weight: 400;
+    padding: 10px;
+    margin-top: 3vh;
+}
+.wrapper{
+
+    overflow: hidden;
+    margin-bottom: 10vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+.wrapper:hover{
+    overflow: hidden;
 }
 
 .project{
-    border-bottom: 1px solid black;
-    margin: 5vh;
-    padding: 10px;
-    display: inline-block;
+    background-color: rgb(36, 36, 36);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    padding: 20px;
+
+    margin: 20px;
+}
+
+.project_number{
+    color: darkorange;
+    font-size: 16px;
+    margin: 0 20px;
+    width: 20px;
+    height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    padding: 7px;
+    border-radius: 50%;
+
+}
+.project .title{
+    color: rgb(235, 235, 235);
+    font-weight: 600;
+    font-size: max(min(33px, 1.6vw), 22px);
     text-align: left;
-    overflow: hidden;
-    background-color: rgb(15, 15, 15);
-    width: 40vw;
-    box-shadow: -20px 20px 0px 0px darkorange;
-    transition: box-shadow 0.3s ease-out;
-    border: 2px solid darkorange;
-}
-.project:hover{
-    box-shadow: -25px 25px 0px 0px darkorange;
-
-}
-
-.project .titlecontainer .title{
-    color: black;
-    padding: 10px;
-    font-weight: 600;
-    background-color: white;
-}
-
-.project .titlecontainer{
-    color: black;
-    font-weight: 600;
+    margin: 0 5px;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid grey;
 }
 
 .paragraph{
-    margin: 10px;
-    color: white;
-
-}
-
-.languages{
-    margin: 10px;
-    display: inline;
-}
-.moreinfo{
-    margin: 10px;
-    float: right;
-    color: black;
-    background-color: white;
-    font-family: 'Montserrat', sans-serif;
+    margin:  0 5px;
+    color: rgb(219, 219, 219);
+    font-size: max(min(22px, 1.6vw), 15px);
     font-weight: 400;
-    padding: 6px;
-    border-radius: 16px;
-    font-size: 13px;
-    border: 1px solid black;
-    width: 90px;
+    text-align: left;
+    padding: 15px;
 }
-.moreinfo:hover{
+
+
+.btn{
+    padding: 0px;
+    text-align: right;
+}
+
+.btn button{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: darkorange;
+    background-color: transparent;
+    border: none;
+    padding: 3px;
+    border-radius: 5px;
+    border: 2px solid rgb(131, 72, 0);
+}
+.btn button:hover{
+    border: 2px solid rgb(71, 39, 0);
+}
+.btn span{
+    position: relative;
+    top: 7px;
+    color: darkorange;
+    font-weight: 400;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 10px;
+}
+button:focus{
+    outline: none;
+}
+
+.info{
+    text-align: left;
+    width: auto;
+    font-size: 22px;
+    font-weight: 200;
     color: black;
+    margin: 10px;
+    padding: 15px;
+    background-color: white;
 }
+
+.slide-enter{
+    opacity: 0;
+    z-index: 1;
+    transform: scale(0.97) translateY(5px);
+}
+.slide-enter-active{
+    opacity: 1;
+    transition: opacity 300ms ease-in-out 100ms, transform 300ms ease-in-out 100ms;
+    transform: scale(1) translateY(0);
+}
+.slide-exit{
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+.slide-exit-active{
+    opacity: 0;
+    transition: opacity 300ms ease-in-out 100ms, transform 300ms ease-in-out 100ms;
+}
+.slide-exit-done{
+    opacity: 0;
+
+}
+
+
+
+
+
+

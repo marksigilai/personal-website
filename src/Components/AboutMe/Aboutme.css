@@ -1,0 +1,124 @@
+.Aboutme-container{
+    z-index: 4;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Aboutme-container div{
+    display: flex;
+    flex-direction: column;
+    width: max(50%, 10rem);
+}
+.Aboutme-container .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: black;
+}
+
+.Aboutme-container .title-container img{
+    width: max(20vw, 300px);
+    border-radius: 5px;
+    margin: 20px;
+}
+.Aboutme-container .title-container h1{
+    text-align: left;
+    color: rgb(231, 231, 231);
+    font-size: max(min(5rem, 1.6vw), 2rem);
+    font-weight: 600;
+    margin: 20px;
+    width: max(20vw, 300px);
+}
+.Aboutme-container .title-container div{
+    text-align: center;
+    color: rgb(143, 143, 143);
+    font-size: max(min(3rem, 0.6vw), 1rem);
+    font-weight: 400;
+    margin: 10px;
+    text-align: left;
+    width: max(20vw, 300px);
+}
+
+
+.Aboutme-container .sections{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Aboutme-container .sections div{
+    max-width: 90%;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    padding: 30px;
+    width: 25vw;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(28, 28, 28);
+}
+.Aboutme-container .sections p{
+    flex-direction: column;
+    color: rgb(136, 136, 136);
+}
+
+.Aboutme-container .sections h1{
+    flex-direction: column;
+    color: white;
+}
+
+.Aboutme-container .sections .sections-next{
+    font-size: 1.3vh;
+    margin-right: 0px;
+    width: 20vw;
+    height: 12vh;
+    overflow: scroll;
+}
+
+.Aboutme-container .sections button{
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    top: 0;
+    margin-bottom: 0;
+    background-color: black;
+    color: darkorange;
+    outline: none;
+    border: none;
+    margin-top: 0;
+}
+
+
+.center-item-enter {
+    opacity: 1;
+    transform: translateY(-10%);
+}
+
+.center-item-enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.center-item-exit {
+    opacity: 0;
+    transform: translateY(0%);
+}
+
+.center-item-exit-active {
+    opacity: 0;
+    transform: translateY(-10%);
+}
+.center-item-enter-active, 
+.center-item-exit-active {
+    transition: opacity 500ms, transform 500ms;
+}

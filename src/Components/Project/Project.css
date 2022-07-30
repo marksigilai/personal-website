@@ -1,148 +1,136 @@
-.container{
-    margin: 0;
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    z-index: 5;
-    background-color: black;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
+.container {
+	margin: 0;
+	display: inline-block;
+	font-family: "Montserrat", sans-serif;
+	position: relative;
+	z-index: 5;
+	background-color: black;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
-.banner{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: max(4vw, 15px);
-    width: 80vw;
-    background-position: center;
-    background-size: cover;
-
+.banner {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: max(4vw, 15px);
+	width: 80vw;
+	background-position: center;
+	background-size: cover;
 }
 
-.banner h1{
-    color: darkorange;
-    font-size: max(min(6rem, 8.6vw), 4rem);
-    display: inline;
-    align-items: center;
-    text-align: left;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 5vh;
-
+.banner h1 {
+	color: darkorange;
+	font-size: max(min(6rem, 8.6vw), 4rem);
+	display: inline;
+	align-items: center;
+	text-align: left;
+	font-weight: 600;
+	text-align: center;
+	margin-top: 5vh;
 }
 
-.banner p{
-    color: white;
-    font-size: max(min(33px, 1.6vw), 23px);
-    text-align: center;
-    font-weight: 400;
-    padding: 10px;
-    margin-top: 3vh;
+.banner p {
+	color: white;
+	font-size: max(min(33px, 1.6vw), 23px);
+	text-align: center;
+	font-weight: 400;
+	padding: 10px;
+	margin-top: 3vh;
 }
-.projects{
-    overflow: hidden;
-    margin-bottom: 10vh;
-    max-width: 70vw;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.project{
-    background-color: rgb(36, 36, 36);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    padding: 20px;
-
-    margin: 20px;
+.projects {
+	overflow: hidden;
+	margin-bottom: 10vh;
+	max-width: 70vw;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
+.project {
+	background-color: rgb(36, 36, 36);
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 400px;
+	padding: 20px;
 
-.project .title{
-    color: rgb(235, 235, 235);
-    font-weight: 600;
-    font-size: max(min(33px, 1.6vw), 22px);
-    text-align: left;
-    margin: 0 5px;
-    text-align: left;
-    padding: 15px;
-    border-bottom: 1px solid grey;
+	margin: 20px;
 }
 
-.project .paragraph{
-    margin: 0 5px;
-    color: rgb(190, 190, 190);
-    font-size: max(min(20px, 1.4vw), 15px);
-    font-weight: 400;
-    text-align: left;
-    padding: 15px;
+.project .title {
+	color: rgb(235, 235, 235);
+	font-weight: 600;
+	font-size: max(min(33px, 1.6vw), 22px);
+	text-align: left;
+	margin: 0 5px;
+	text-align: left;
+	padding: 15px;
+	border-bottom: 1px solid grey;
 }
 
-
-.btn{
-    padding: 0px;
-    text-align: right;
+.project .paragraph {
+	margin: 0 5px;
+	color: rgb(190, 190, 190);
+	font-size: max(min(20px, 1.4vw), 15px);
+	font-weight: 400;
+	text-align: left;
+	padding: 15px;
 }
 
-.btn button{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: darkorange;
-    background-color: transparent;
-    border: none;
-    padding: 3px;
-    border-radius: 5px;
-    border: 2px solid rgb(131, 72, 0);
-}
-.btn button:hover{
-    border: 2px solid rgb(71, 39, 0);
-}
-.btn span{
-    position: relative;
-    top: 7px;
-    color: darkorange;
-    font-weight: 400;
-    background-color: transparent;
-    border-radius: 50%;
-    margin: 10px;
-}
-button:focus{
-    outline: none;
+.btn {
+	padding: 0px;
+	text-align: right;
 }
 
-.slide-enter{
-    opacity: 0;
-    z-index: 1;
-    transform: scale(0.97) translateY(5px);
+.btn button {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+	font-size: 15px;
+	color: darkorange;
+	background-color: transparent;
+	border: none;
+	padding: 3px;
+	border-radius: 5px;
+	border: 2px solid rgb(131, 72, 0);
 }
-.slide-enter-active{
-    opacity: 1;
-    transition: opacity 300ms ease-in-out 100ms, transform 300ms ease-in-out 100ms;
-    transform: scale(1) translateY(0);
+.btn button:hover {
+	border: 2px solid rgb(71, 39, 0);
 }
-.slide-exit{
-    opacity: 1;
-    transform: scale(1) translateY(0);
+.btn span {
+	position: relative;
+	top: 7px;
+	color: darkorange;
+	font-weight: 400;
+	background-color: transparent;
+	border-radius: 50%;
+	margin: 10px;
 }
-.slide-exit-active{
-    opacity: 0;
-    transition: opacity 300ms ease-in-out 100ms, transform 300ms ease-in-out 100ms;
-}
-.slide-exit-done{
-    opacity: 0;
-
+button:focus {
+	outline: none;
 }
 
-
-
-
-
-
+.slide-enter {
+	opacity: 0;
+	z-index: 1;
+	transform: scale(0.97) translateY(5px);
+}
+.slide-enter-active {
+	opacity: 1;
+	transition: opacity 300ms ease-in-out 100ms, transform 300ms ease-in-out 100ms;
+	transform: scale(1) translateY(0);
+}
+.slide-exit {
+	opacity: 1;
+	transform: scale(1) translateY(0);
+}
+.slide-exit-active {
+	opacity: 0;
+	transition: opacity 300ms ease-in-out 100ms, transform 300ms ease-in-out 100ms;
+}
+.slide-exit-done {
+	opacity: 0;
+}

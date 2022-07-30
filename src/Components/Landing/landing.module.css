@@ -1,122 +1,122 @@
-.landing{
-    display: flex;
-    height: 100vh;
-    background-color: black;
-    align-items: center;
-    justify-content: center;
+.landing {
+	display: flex;
+	height: 100vh;
+	background-color: black;
+	align-items: center;
+	justify-content: center;
 }
-.img{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../../Images/jeremy.jpg');
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    opacity: 0.6;
+.img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../../Images/jeremy.jpg");
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	opacity: 0.6;
 }
-.info_container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
+.info_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
 }
-.landing h3{
-    display: block;
-    padding: 10px;
-    color: white;
-    background-color: darkorange;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: min(1.5rem, 4vw);
-    font-weight: 900;
-    margin: 5px;
-    border-radius: 0.3rem;
+.landing h3 {
+	display: block;
+	padding: 10px;
+	color: white;
+	background-color: darkorange;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: min(1.5rem, 4vw);
+	font-weight: 900;
+	margin: 5px;
+	border-radius: 0.3rem;
 }
-.titles_container{
-    position: relative;
+.titles_container {
+	position: relative;
 
-    margin: 0.7rem;
-    border-radius: 0.3rem;
-
-}
-
-.title{
-    display: block;
-    color: black;
-    position: relative;
-    z-index: 1;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: max(5vw, 4rem);
-    background-color: white;
-    border: 0.3rem;
-    border-radius: 0.3rem;
-
+	margin: 0.7rem;
+	border-radius: 0.3rem;
 }
 
-.subtitle{
-    display: block;
-    position: relative;
-    z-index: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    font-weight: 600;
-    font-size: max(1.5vw, 1.3rem);
-    border-radius: 0 0 0.3rem 0.3rem;
-    padding: 1rem;
-    background-color: rgb(32, 32, 32);
-    max-width: 70%;
-    margin: auto;
-    line-height: 1em; /* a */
-
+.title {
+	display: block;
+	color: black;
+	position: relative;
+	z-index: 1;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 800;
+	font-size: max(5vw, 4rem);
+	background-color: white;
+	border: 0.3rem;
+	border-radius: 0.3rem;
 }
 
-
-.btn{
-    margin-top: 30px;
-    display: inline-block;
-    background-color: transparent;
-    border: none;
-    padding: 7px;
-
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    border-radius: 5px;
-    position: absolute;
-    top: 85vh;
-    height: 35px;
-    z-index: 5;
-}
-.btn:hover{
-    border: none;
+.subtitle {
+	display: block;
+	position: relative;
+	z-index: 0;
+	font-family: "Montserrat", sans-serif;
+	color: white;
+	font-weight: 600;
+	font-size: max(1.5vw, 1.3rem);
+	border-radius: 0 0 0.3rem 0.3rem;
+	padding: 1rem;
+	background-color: rgb(32, 32, 32);
+	max-width: 70%;
+	margin: auto;
+	line-height: 1em; /* a */
 }
 
+.btn {
+	margin-top: 30px;
+	display: inline-block;
+	background-color: transparent;
+	border: none;
+	padding: 7px;
 
-.landing h3 span{
-    font-size: 12px;
-    display: block;
-    color: black;
-    font-weight: 900;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+	border-radius: 5px;
+	position: absolute;
+	top: 85vh;
+	height: 35px;
+	z-index: 5;
+}
+.btn:hover {
+	border: none;
 }
 
-.landing .btn span{
-    font-size: 30px;
-    margin:0;
-    padding:0;
-    color: white;
-    animation: bounce 1s ease-in-out 3s forwards infinite;
-}
-@keyframes bounce{
-    0% {transform: translateY(5px);}
-    50% {transform: translateY(-5px);}
-    100% {transform: translateY(5px);}
+.landing h3 span {
+	font-size: 12px;
+	display: block;
+	color: black;
+	font-weight: 900;
 }
 
+.landing .btn span {
+	font-size: 30px;
+	margin: 0;
+	padding: 0;
+	color: white;
+	animation: bounce 1s ease-in-out 3s forwards infinite;
+}
+@keyframes bounce {
+	0% {
+		transform: translateY(5px);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+	100% {
+		transform: translateY(5px);
+	}
+}

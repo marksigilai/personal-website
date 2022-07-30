@@ -1,134 +1,125 @@
-.container{
-    background-color: rgb(0, 0, 0);
-    position: relative;
-    z-index: 2;
-    height: 100vh;
-    
+.container {
+	background-color: rgb(0, 0, 0);
+	position: relative;
+	z-index: 2;
+	height: 100vh;
 }
-.main{
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
+.main {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
-.main .heading{
+.main .heading {
+	color: darkorange;
+	border-bottom: 0.2rem solid darkgray;
+	font-weight: 600;
+	display: block;
 
-    color: darkorange;
-    border-bottom: 0.2rem solid darkgray;
-    font-weight: 600;
-    display: block;
+	font-size: max(min(6rem, 8.6vw), 2.5rem);
 
-    font-size: max(min(6rem, 8.6vw), 2.5rem);
-
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin: 2rem;
-    padding: 1rem 2rem;
-
-
+	font-family: "Montserrat", sans-serif;
+	text-align: center;
+	margin: 2rem;
+	padding: 1rem 2rem;
 }
 
-.main .subheading{
-    color: white;
-    font-weight: 600;
-    display: block;
-    font-size: max(min(2rem, 4.6vw), 1.5rem);
-    font-family: 'Montserrat', sans-serif;
-    max-width: 40rem;
-    text-align: center;
-    margin: 0.1rem;
+.main .subheading {
+	color: white;
+	font-weight: 600;
+	display: block;
+	font-size: max(min(2rem, 4.6vw), 1.5rem);
+	font-family: "Montserrat", sans-serif;
+	max-width: 40rem;
+	text-align: center;
+	margin: 0.1rem;
 }
 
-.content{
-    position: absolute;
-    top: 50%;
-    background-color: rgb(34, 34, 34);
-    margin: 1.25rem;
-    padding: 1.25rem;
-    min-width: 16rem;
-    border-radius: 0.3rem;
+.content {
+	position: absolute;
+	top: 50%;
+	background-color: rgb(34, 34, 34);
+	margin: 1.25rem;
+	padding: 1.25rem;
+	min-width: 16rem;
+	border-radius: 0.3rem;
 }
-.main .email, .main .call{
-    font-family: 'Montserrat', sans-serif;
-    display: block;
-    text-align: left;
+.main .email,
+.main .call {
+	font-family: "Montserrat", sans-serif;
+	display: block;
+	text-align: left;
 
-    font-size: 1.25rem;
-    margin: 1.25rem;
+	font-size: 1.25rem;
+	margin: 1.25rem;
 }
-.email button, .call button{
-    padding: 0.3rem;
-    font-family: 'Montserrat', sans-serif;
-    margin-left: 1rem;
-    color: rgb(155, 155, 155);
-    border: none;
-    position: relative;
-    top: 0.3rem;
-    background-color: transparent;
+.email button,
+.call button {
+	padding: 0.3rem;
+	font-family: "Montserrat", sans-serif;
+	margin-left: 1rem;
+	color: rgb(155, 155, 155);
+	border: none;
+	position: relative;
+	top: 0.3rem;
+	background-color: transparent;
 }
-.email button:focus{
-    outline: none;
+.email button:focus {
+	outline: none;
 }
-.sp1{
-    display: inline-block;
-    font-size: 1rem;
-    color: rgb(165, 165, 165);
-    font-weight: 600;
+.sp1 {
+	display: inline-block;
+	font-size: 1rem;
+	color: rgb(165, 165, 165);
+	font-weight: 600;
 }
-.sp1::after{
-    content: ' ';
-    width: 1.25rem;
-    height: 0.3rem;
-    display: block;
-    background-color: gray;
-    margin-top: 0.3rem;
+.sp1::after {
+	content: " ";
+	width: 1.25rem;
+	height: 0.3rem;
+	display: block;
+	background-color: gray;
+	margin-top: 0.3rem;
 }
-.sp2{
-    display: block;
-    color: white;
-    margin-top: 0.8rem;
-    font-size: max(min(1.7rem, 2.6vw), 1rem);
-    text-decoration: none;
-    min-width: 20rem;
+.sp2 {
+	display: block;
+	color: white;
+	margin-top: 0.8rem;
+	font-size: max(min(1.7rem, 2.6vw), 1rem);
+	text-decoration: none;
+	min-width: 20rem;
+}
 
-}
-
-.links_container{
-    text-align: left;
-    margin: 1.25rem;
-    margin-right: max(1.25rem, 5vw);
-    float: left;
-
-
+.links_container {
+	text-align: left;
+	margin: 1.25rem;
+	margin-right: max(1.25rem, 5vw);
+	float: left;
 }
 .links_container::after {
-    content: ' ';
-    display: block;
-    text-align: left;
-    height: 0.2rem;
-    margin-top: 0.2rem;
-    width: 0px;
-    background: transparent;
-    transition: width .5s ease, background-color .5s ease;
+	content: " ";
+	display: block;
+	text-align: left;
+	height: 0.2rem;
+	margin-top: 0.2rem;
+	width: 0px;
+	background: transparent;
+	transition: width 0.5s ease, background-color 0.5s ease;
 }
 .links_container:hover::after {
-    width: 100%;
-    background: darkorange;
+	width: 100%;
+	background: darkorange;
 }
 
-.links{
-    background-color: transparent;
-    text-align: left;
-    color: white;
-    border: none;
-
+.links {
+	background-color: transparent;
+	text-align: left;
+	color: white;
+	border: none;
 }
 
-.links h2{
-    font-family: 'Montserrat', sans-serif;
-    color: darkorange;
-    font-size: 1rem;
-    text-align: left;
-
+.links h2 {
+	font-family: "Montserrat", sans-serif;
+	color: darkorange;
+	font-size: 1rem;
+	text-align: left;
 }

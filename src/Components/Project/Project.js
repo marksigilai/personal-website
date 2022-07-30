@@ -13,7 +13,7 @@ class Project extends Component{
         this.banner = createRef()
         this.title = createRef()
         this.subtitle = createRef()
-        this.icon = createRef()
+
         this.projects = createRef()
 
 
@@ -22,7 +22,6 @@ class Project extends Component{
     async componentDidMount(){
         await this.title.current
         await this.subtitle.current
-        await this.icon.current
         await this.container.current
         await this.banner.current
 
@@ -41,7 +40,7 @@ class Project extends Component{
                 pin: true,
 
           }
-        }).from([this.icon.current, this.title.current, this.subtitle.current], 0.4, {
+        }).from([this.title.current, this.subtitle.current], 0.4, {
           y: -30,
           ease: Power2.easeOut,
           opacity:0,
@@ -105,7 +104,7 @@ class Project extends Component{
             <div ref={this.container} className="container">
 
                 <div ref={this.banner} className="banner">
-                    <span ref={this.icon} class="material-icons">explore</span>
+
                     <h1 ref={this.title}>...my projects</h1>
                     <p ref={this.subtitle}> a list of some of the recent school and personal projects I have worked on.</p>
                 </div>

@@ -22,17 +22,6 @@
 
 }
 
-.banner span{
-    padding: 5px;
-    border-radius: 50%;
-    background-color: rgb(206, 206, 206);
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin: 20px;
-}
-
-
 .banner h1{
     color: darkorange;
     font-size: max(min(6rem, 8.6vw), 4rem);
@@ -41,6 +30,8 @@
     text-align: left;
     font-weight: 600;
     text-align: center;
+    margin-top: 5vh;
+
 }
 
 .banner p{

@@ -12,29 +12,60 @@ const AboutMe = () =>{
 
 	var sections = [{
 			id: uuid(),
+			icon: "badge",
 			title: "Experience",
-			description: "Previous work experiences includes working at the ICBC Headquarters as part of the automation testing team. Achievements during my 1 year internship iclude"
+			descriptions: [{
+				description: "Insurance Corporation of British Columbia"
+			},{
+				description: "Jan to Dec 2021 - 12 months"
+			},{
+				description: "Automation Testing"
+			},
+			{
+				description: "Tools used - Selenium, Java, Maven"
+			}]
 		},{
 			id: uuid(),
+			icon: "menu_book",
 			title: "Education",
-			description: "I am a student at the University of Victoria pursuing a degree in Software Engineering. Currently, I am in my 4th and final year."
+			descriptions: [{
+				description: "University of Victoria"
+			},{
+				description: "Bachelor of Software Engineering"
+			},{
+				description: "2017 to present"
+			},{
+				description: "Graduation - May 2023"
+			}
+				
+			],
 		},{
 			id: uuid(),
+			icon: "location_city",
 			title: "Location",
-			description: "Currently I am based in Victoria, B.C. taking classes as part of my last semester. I am actively looking for a new challenge!  Feel free to reach out to me through my email listed in the contact details on the last page!"
+			descriptions: [{
+				description: "Based in Victoria, B.C. Canada"
+			}]
 		},
 		{
 			id: uuid(),
+			icon: "public",
 			title: "Background",
-			description: "I'm an international from Nairobi, Kenya where I was born and raised. Came to Canada in August 2017 to study Software Engine"
+			descriptions: [{
+				description: "From Nairobi, Kenya.",
+			},{
+				description: "Came to Canada in August 2017"
+			}]
 		}
 	];
   
 
     return (
       <div className="Aboutme-container">
+
+		<div className='design'></div>
         
-        <div className='title-container'>
+        <div className='intro-container'>
 			<img src={profileImage} alt='profile'/>
 			<h1>
 				Hello! <br/> My name is Mark Sigilai and I'm a Software Engineering Student. 
@@ -44,38 +75,28 @@ const AboutMe = () =>{
 			</div>
         </div>
 
+
 		<div className="sections">		
 
-			<SwitchTransition>
-				{sections.map(({id, title, description}) => (
-					<CSSTransition key={ id } classNames="center-item" timeout={500}>
-						<div className="sections-next">   
-							<h1>{ title } </h1>
-							<p>{ description }</p>
-						</div>	
-					</CSSTransition>
-				))}
-			</SwitchTransition>
-
-			<SwitchTransition>
-				<CSSTransition key={ sections[(current+1)%4].id } classNames="center-item" timeout={600}>
-						<div className="sections-next">   
-							<h1>{ sections[(current+1)%4].title } </h1>
-							<p>{ sections[(current+1)%4].description }</p>
+			{ sections.map( (section) => {
+				return(
+					<div className="sections-next" key={section.id}>   
+						<div>
+							<span class="material-icons">{section.icon}</span>
+							<h1>{ section.title } </h1>
 						</div>
-				</CSSTransition>
-			</SwitchTransition>
-
-
-			<SwitchTransition>
-				<CSSTransition key={ sections[(current+2)%4].id } classNames="center-item" timeout={700}>
-					<div className="sections-next">   
-						<h1>{ sections[(current+2)%4].title } </h1>
-						<p>{ sections[(current+2)%4].description }</p>
-					</div>
-				</CSSTransition>
-			</SwitchTransition>
-
+						<ul>
+							{ section.descriptions.map( (description) => {
+								return(
+									<li>	
+										{description.description}
+									</li>
+								)
+							})}
+						</ul>
+					</div>	
+				)
+			})}
 		</div>
 		
 

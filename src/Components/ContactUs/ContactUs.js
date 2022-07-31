@@ -8,7 +8,8 @@ class ContactUs extends Component {
 		this.state = {
 			width: window.innerWidth,
 			height: window.innerHeight,
-			copied: false,
+			phoneCopied: false,
+			emailCopied: false,
 			copy_status: "copy to clipboard",
 		};
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -47,10 +48,10 @@ class ContactUs extends Component {
 							<CopyToClipboard
 								text="sigilaimark@gmail.com"
 								onCopy={() => {
-									this.setState({ copied: "true", copy_status: "copied to clipboard" });
+									this.setState({ emailCopied: "true", copy_status: "copied to clipboard" });
 								}}
 							>
-								<button type="button" style={this.state.copied ? { color: "green" } : { color: "grey" }}>
+								<button type="button" style={this.state.emailCopied ? { color: "green" } : { color: "grey" }}>
 									<span class="material-icons">content_copy</span>
 								</button>
 							</CopyToClipboard>
@@ -60,13 +61,13 @@ class ContactUs extends Component {
 						<p className={styles.call}>
 							<span className={styles.sp1}>PHONE</span>
 							<CopyToClipboard
-								text="236) 882 4370"
+								text="236) 882 6885"
 								onCopy={() => {
-									this.setState({ copied: "true", copy_status: "copied to clipboard" });
+									this.setState({ phoneCopied: "true", copy_status: "copied to clipboard" });
 								}}
 							>
-								<button type="button" style={this.state.copied ? { color: "green" } : { color: "grey" }}>
-									<span class="material-icons">content_copy</span>
+								<button type="button" style={this.state.phoneCopied ? { color: "green" } : { color: "grey" }}>
+									<span class="material-icons">call</span>
 								</button>
 							</CopyToClipboard>
 							<a href="tel:2368826885" className={styles.sp2}>

@@ -28,7 +28,7 @@
 	text-align: left;
 	font-weight: 600;
 	text-align: center;
-	margin-top: 5vh;
+	margin-top: 0;
 }
 
 .banner p {
@@ -37,7 +37,6 @@
 	text-align: center;
 	font-weight: 400;
 	padding: 10px;
-	margin-top: 3vh;
 }
 .projects {
 	overflow: hidden;
@@ -57,8 +56,7 @@
 	justify-content: center;
 	width: 400px;
 	padding: 20px;
-
-	margin: 20px;
+	margin: 20px 0;
 }
 
 .project .title {
@@ -75,10 +73,10 @@
 .project .paragraph {
 	margin: 0 5px;
 	color: rgb(190, 190, 190);
-	font-size: max(min(20px, 1.4vw), 15px);
+	font-size: max(min(18px, 1.3vw), 14px);
 	font-weight: 400;
 	text-align: left;
-	padding: 15px;
+	padding: 10px;
 }
 
 .btn {
@@ -133,4 +131,12 @@ button:focus {
 }
 .slide-exit-done {
 	opacity: 0;
+}
+
+.languages {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin: 10px;
 }

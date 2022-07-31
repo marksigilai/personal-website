@@ -1,4 +1,5 @@
 import React, { Component, createRef } from "react";
+import Language from "../Language/Language";
 import propTypes from "prop-types";
 import "./Project.css";
 import { Power3, TimelineLite, Power2, gsap } from "gsap";
@@ -67,24 +68,38 @@ class Project extends Component {
 		const projects = [
 			{
 				title: "Stock Trading Simulator",
-				description: "The stock trading simulator is a project where users can create an account and then trade stocks",
+				description:
+					"A scalable stock trading app where users can create accounts, add virtual funds and complete trading transactions.",
 				github: "https://github.com/marksigilai/stock-trading-app/",
+				languages: [
+					{ language: "Python" },
+					{ language: "React" },
+					{ language: "NodeJS" },
+					{ language: "MongoDB" },
+					{ language: "NGINX" },
+					{ language: "Docker" },
+				],
 			},
 			{
 				title: "Personal Website",
 				description:
-					"The personal website is an ongoing project where I aim to maintain a portfolio of my past and current works ",
+					"It is intended to have all the relevant info from my resume, and later iterations will have a blog, admin account for dynamic data management, and posts about my other hobbies.",
 				github: "https://github.com/marksigilai/personal-website",
+				languages: [{ language: "React" }, { language: "HTML" }, { language: "CSS" }],
 			},
 			{
-				title: "Cooperative Scheduler",
-				description: "The worm scheduler is a cooperative scheduler for the worm game",
+				title: "Worm Scheduler",
+				description:
+					"A cooperative scheduler built in C that supports the scheduling of the functions of the worm game. The game runs on a terminal window.",
 				github: "https://github.com/marksigilai/worm-scheduler",
+				languages: [{ language: "C" }],
 			},
 			{
 				title: "Log File System",
-				description: "The log file system is a",
+				description:
+					"Modifies a simulated disk where creation/manipulation of files and directories is possible by allocating memory and the use of inodes to reference memory locations.",
 				github: "https://github.com/marksigilai/log-file-system",
+				languages: [{ language: "C" }],
 			},
 		];
 
@@ -106,6 +121,11 @@ class Project extends Component {
 										{" "}
 										{project.description}{" "}
 									</p>
+									<div className="languages">
+										{project.languages.map((language) => {
+											return <Language language={language.language} />;
+										})}
+									</div>
 
 									<form className="btn" action={project.github}>
 										<button type="submit">GitHub</button>

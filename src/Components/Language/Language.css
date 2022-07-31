@@ -1,0 +1,15 @@
+.Language-container {
+	background-color: rgb(158, 158, 158);
+	color: rgb(31, 31, 31);
+	border-radius: 10px;
+	display: inline;
+	padding: 3px 5px;
+	margin: 5px;
+	text-align: left;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 800;
+	font-style: italic;
+	font-size: 0.7rem;
+	min-width: 20px;
+	text-align: center;
+}

@@ -85,14 +85,18 @@ const AboutMe = () => {
 
 	return (
 		<div className="Aboutme-container" style={{ "--aboutme-align-default": isPhone ? "center" : "left" }}>
-			<div className="design"></div>
+			<div className="design" style={{ display: isPhone ? "none" : "initial" }}></div>
 
 			<div className="intro-container">
 				<img src={profileImage} alt="profile" />
 				<h1>
 					Hello! <br /> My name is Mark Sigilai and I'm a Software Engineering Student.
 				</h1>
-				<div>I created this website to be a personal tracker and as a web dev practice. Hope you enjoy the experience!</div>
+				<div>
+					Currently, I am completing my final semester of classes in university, and actively looking for new experiences! I am
+					really passionate and adaptable to any new situation. I have had experience in Web Development, Software Testing,
+					Complex Algorithms, etc and enjoy the learning experience that comes with it.
+				</div>
 			</div>
 
 			<div className="sections">

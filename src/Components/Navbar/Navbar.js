@@ -8,26 +8,26 @@ import { useState } from "react";
 
 const setCurrentTab = (currentTab) => {
 	TweenMax.to(".Navbar-link", 0.1, {
-		css: { color: "white", transform: "scale(0.8)" },
+		css: { color: "white", transform: "scale(0.8)", color: "lightgrey" },
 		ease: Power3.easeInOut,
 		delay: 0,
 	});
 
 	if (currentTab === "/") {
 		TweenMax.to(".Navbar-link-home", 0.1, {
-			css: { transform: "scale(1.3)" },
+			css: { transform: "scale(1)", color: "white" },
 			ease: Power3.easeInOut,
 			delay: 0,
 		});
 	} else if (currentTab === "/resume") {
 		TweenMax.to(".Navbar-link-resume", 0.1, {
-			css: { transform: "scale(1.3)" },
+			css: { transform: "scale(1)", color: "white" },
 			ease: Power3.easeInOut,
 			delay: 0,
 		});
 	} else if (currentTab === "/about") {
 		TweenMax.to(".Navbar-link-about", 0.1, {
-			css: { transform: "scale(1.3)" },
+			css: { transform: "scale(1)", color: "white" },
 			ease: Power3.easeInOut,
 			delay: 0,
 		});

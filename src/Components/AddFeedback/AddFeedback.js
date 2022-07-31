@@ -97,10 +97,10 @@ class AddFeedback extends Component {
 		};
 		const requestOptions = {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
+			headers: { "Content-Type": "application/json", "Access-Control-Request-Headers": "*" },
 			body: JSON.stringify(msg),
 		};
-		fetch("http://localhost:3002/feedback", requestOptions)
+		fetch("https://data.mongodb-api.com/app/data-vrgzn/endpoint/data/v1/action/findOne", requestOptions)
 			.then((response) => {
 				console.log("Hre");
 				response.json();

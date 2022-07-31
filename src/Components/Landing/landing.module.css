@@ -1,5 +1,5 @@
 .landing {
-	display: flex;
+	display: none;
 	height: 100vh;
 	background-color: black;
 	align-items: center;

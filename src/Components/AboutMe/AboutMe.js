@@ -1,7 +1,7 @@
 import React from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import "./Aboutme.css";
-import profileImage from "../../../public/images/mark-sigilai.jpeg";
+import profileImage from "../../images/mark-sigilai.jpeg";
 import useWindowDimensions from "../../Helper/dimensions";
 
 //import {TweenMax, Power2, gsap, TimelineMax} from 'gsap'

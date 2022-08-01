@@ -2,7 +2,6 @@ import React, { Component, createRef } from "react";
 import auth from "../../Helper/auth";
 import { withRouter } from "react-router-dom";
 import styles from "./login.module.css";
-import img from "../../Images/rastafari.png";
 import { Power3, Power0, gsap } from "gsap";
 
 class Login extends Component {
@@ -95,7 +94,7 @@ class Login extends Component {
 						<span class="material-icons">close</span>
 					</button>
 					<div className={styles.login_myname}>
-						<img src={img} alt="user" className={styles.login_icon}></img>
+						<img alt="user" className={styles.login_icon}></img>
 						<h2>Mark Sigilai</h2>
 					</div>
 					<input

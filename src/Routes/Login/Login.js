@@ -62,22 +62,6 @@ class Login extends Component {
 		}
 	};
 
-	showLogin = (event) => {
-		//this.setState({visibility : true})
-		console.log("button has been clicked!");
-
-		//document.getElementById('login').style = 'width: 68vw'
-		//document.getElementById('form').style = 'height: 75vh'
-		//document.getElementById('emptydiv').style = 'width: 100%; height: 100%; opacity: 0.5'
-	};
-
-	closeLogin = (event) => {
-		//this.setState({visibility:false})
-		//document.getElementById('emptydiv').style = 'width: 0; height: 0; opacity: 0'
-		//document.getElementById('login').style = 'width: 0;'
-		//document.getElementById('form').style = 'height: 0;'
-	};
-
 	render() {
 		return (
 			<div id="login" ref={this.container} className={styles.login}>

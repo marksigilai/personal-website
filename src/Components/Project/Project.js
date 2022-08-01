@@ -29,7 +29,7 @@ class Project extends Component {
 				trigger: this.banner.current,
 				start: "top top",
 				end: "bottom center",
-				markers: true,
+				markers: false,
 				pin: true,
 			},
 		}).from([this.title.current, this.subtitle.current], 0.4, {
@@ -41,8 +41,8 @@ class Project extends Component {
 			scrollTrigger: {
 				toggleActions: "restart reverse restart reverse",
 				trigger: this.banner.current,
-				start: "top 800px",
-				markers: true,
+				start: "top 80%",
+				markers: false,
 				scrub: 0.1,
 			},
 		});
@@ -56,8 +56,8 @@ class Project extends Component {
 			scrollTrigger: {
 				toggleActions: "restart reverse restart reverse",
 				trigger: ".project",
-				start: "top 600px",
-				//markers: true,
+				start: "top 60%",
+				markers: true,
 			},
 		});
 	}

@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Aboutme.css";
 import profileImage from "../../images/mark-sigilai.jpeg";
 import useWindowDimensions from "../../Helper/dimensions";
-
-//import {TweenMax, Power2, gsap, TimelineMax} from 'gsap'
-//import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { Power2, gsap } from "gsap";
 import uuid from "uuid";
 
 const AboutMe = () => {
+	useEffect(() => {
+		gsap.from([".sections-next", ".design"], {
+			x: 100,
+			opacity: 0,
+			duration: 0.2,
+			stagger: 0.1,
+			delay: 0.5,
+		});
+	});
+
 	const { width } = useWindowDimensions();
 
 	var isPhone;
@@ -87,7 +95,7 @@ const AboutMe = () => {
 			<div className="design" style={{ display: isPhone ? "none" : "initial" }}></div>
 
 			<div className="intro-container">
-				<img src={profileImage} alt="profile" />
+				<img id="profile-img" src={profileImage} alt="profile" />
 				<h1>
 					Hello! <br /> My name is Mark Sigilai and I'm a Software Engineering Student.
 				</h1>

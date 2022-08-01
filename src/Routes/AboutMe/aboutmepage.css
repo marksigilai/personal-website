@@ -1,47 +1,46 @@
-.AboutMe-container{
-    background-color: rgb(65, 65, 65);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
+.AboutMe-container {
+	background-color: rgb(65, 65, 65);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
 }
-.AboutMe-notice{
-    background-color: rgb(0, 0, 0);
-    padding: 3rem;
-    font-family: 'montesarat', sans-serif;
-    color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 30rem;
-}
-
-.AboutMe-notice h1{
-    font-weight: 600;
-    font-size: 3.5rem;
-    margin: 20px;
+.AboutMe-notice {
+	background-color: rgb(0, 0, 0);
+	padding: 1vw;
+	font-family: "montesarat", sans-serif;
+	color: rgb(255, 255, 255);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 30rem;
 }
 
-.AboutMe-notice p{
-    color: rgb(169, 169, 169);
-    margin: 20px;
-    font-weight: 500;
-    font-size: 1.2rem;
-
+.AboutMe-notice h1 {
+	font-weight: 600;
+	font-size: 3.5rem;
+	margin: 20px;
 }
 
-.AboutMe-link{
-    color: rgb(0, 0, 0);
-    margin: 20px;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 10px;
-    border: none;
-    background-color: rgb(226, 226, 226);
-    border-radius: 3px;
-    text-decoration: none;
+.AboutMe-notice p {
+	color: rgb(169, 169, 169);
+	margin: 20px;
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+
+.AboutMe-link {
+	color: rgb(0, 0, 0);
+	margin: 20px;
+	font-weight: 600;
+	font-size: 1rem;
+	padding: 10px;
+	border: none;
+	background-color: rgb(226, 226, 226);
+	border-radius: 3px;
+	text-decoration: none;
 }

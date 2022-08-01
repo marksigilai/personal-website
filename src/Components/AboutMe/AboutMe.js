@@ -7,12 +7,16 @@ import uuid from "uuid";
 
 const AboutMe = () => {
 	useEffect(() => {
-		gsap.from([".sections-next", ".design"], {
+		gsap.from([".sections-next"], {
 			x: 100,
 			opacity: 0,
 			duration: 0.2,
 			stagger: 0.1,
-			delay: 0.5,
+			delay: 0.8,
+		});
+		gsap.from([".design"], {
+			scale: 10,
+			duration: 0.8,
 		});
 	});
 
@@ -101,8 +105,8 @@ const AboutMe = () => {
 				</h1>
 				<div>
 					Currently, I am completing my final semester of classes in university, and actively looking for new experiences! I am
-					really passionate and adaptable to any new situation. I have had experience in Web Development, Software Testing,
-					Complex Algorithms, etc and enjoy the learning experience that comes with it.
+					really passionate and adaptable to any new situation. I interests in Web Development, Software Testing, Complex
+					Algorithms, etc and enjoy the learning experience that comes with it.
 				</div>
 			</div>
 

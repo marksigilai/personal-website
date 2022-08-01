@@ -39,8 +39,10 @@ class ContactUs extends Component {
 		return (
 			<div className={styles.container} id="container">
 				<div className={styles.main}>
-					<h1 className={styles.heading}>contact me.</h1>
-					<p className={styles.subheading}>Feel free to contact me through the phone or email below </p>
+					<div>
+						<h1 className={styles.heading}>contact me.</h1>
+						<p className={styles.subheading}>Feel free to contact me through the phone or email below </p>
+					</div>
 
 					<div className={styles.content} id="forms_container">
 						<p className={styles.email}>

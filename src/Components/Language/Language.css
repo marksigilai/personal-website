@@ -1,6 +1,6 @@
 .Language-container {
-	background-color: rgb(158, 158, 158);
-	color: rgb(31, 31, 31);
+	background-color: rgb(90, 50, 0);
+	color: darkorange;
 	border-radius: 10px;
 	display: inline;
 	padding: 3px 5px;
@@ -8,7 +8,6 @@
 	text-align: left;
 	font-family: "Montserrat", sans-serif;
 	font-weight: 800;
-	font-style: italic;
 	font-size: 0.7rem;
 	min-width: 20px;
 	text-align: center;

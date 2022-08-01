@@ -82,6 +82,11 @@
 .btn {
 	padding: 0px;
 	text-align: right;
+	vertical-align: middle;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: flex-end;
 }
 
 .btn button {
@@ -90,7 +95,6 @@
 	font-size: 15px;
 	color: darkorange;
 	background-color: transparent;
-	border: none;
 	padding: 3px;
 	border-radius: 5px;
 	border: 2px solid rgb(131, 72, 0);

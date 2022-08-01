@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const setCurrentTab = (currentTab) => {
 	TweenMax.to(".Navbar-link", 0.1, {
-		css: { color: "white", transform: "scale(0.8)", color: "lightgrey" },
+		css: { color: "lightgrey", transform: "scale(0.8)" },
 		ease: Power3.easeInOut,
 		delay: 0,
 	});

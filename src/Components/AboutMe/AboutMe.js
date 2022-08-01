@@ -1,5 +1,4 @@
 import React from "react";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
 import "./Aboutme.css";
 import profileImage from "../../images/mark-sigilai.jpeg";
 import useWindowDimensions from "../../Helper/dimensions";

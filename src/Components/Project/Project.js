@@ -1,9 +1,7 @@
 import React, { Component, createRef } from "react";
 import Language from "../Language/Language";
-import propTypes from "prop-types";
 import "./Project.css";
-import { Power3, TimelineLite, Power2, gsap } from "gsap";
-import { CSSTransition } from "react-transition-group";
+import { Power2, gsap } from "gsap";
 
 class Project extends Component {
 	constructor(props) {

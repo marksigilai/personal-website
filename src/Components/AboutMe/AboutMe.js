@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Aboutme.css";
 import profileImage from "../../images/mark-sigilai.jpeg";
 import useWindowDimensions from "../../Helper/dimensions";
-import { Power2, gsap } from "gsap";
+import { gsap } from "gsap";
 import uuid from "uuid";
 
 const AboutMe = () => {

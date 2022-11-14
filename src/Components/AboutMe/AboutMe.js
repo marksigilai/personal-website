@@ -2,22 +2,45 @@ import React, { useEffect } from "react";
 import "./Aboutme.css";
 import profileImage from "../../images/mark-sigilai.jpeg";
 import useWindowDimensions from "../../Helper/dimensions";
-import { gsap } from "gsap";
+import { gsap, Power3, Power2 } from "gsap";
 import uuid from "uuid";
 
 const AboutMe = () => {
 	useEffect(() => {
-		gsap.from([".sections-next"], {
-			x: 100,
+		var tl = gsap.timeline();
+
+		tl.from([".intro"], {
+			y: 20,
+			duration: 1,
 			opacity: 0,
-			duration: 0.2,
-			stagger: 0.1,
-			delay: 0.8,
-		});
-		gsap.from([".design"], {
-			scale: 10,
-			duration: 0.8,
-		});
+			delay: 0.5,
+			stagger: 0.3,
+		})
+
+			.from([".sections-next"], {
+				y: 20,
+				opacity: 0,
+				duration: 0.2,
+				stagger: 0.3,
+			})
+			.to("#name", {
+				color: "#FF8C00",
+				ease: Power3.easeInOut,
+			})
+			.to([".intro-container", ".sections"], {
+				opacity: 0,
+				duration: 0.1,
+				ease: Power2.easeInOut,
+				scale: 0.5,
+
+				scrollTrigger: {
+					trigger: [".sections"],
+					start: "bottom 100%",
+					end: "bottom 50%",
+					markers: true,
+					scrub: 0.1,
+				},
+			});
 	});
 
 	const { width } = useWindowDimensions();
@@ -96,17 +119,16 @@ const AboutMe = () => {
 
 	return (
 		<div className="Aboutme-container" style={{ "--aboutme-align-default": isPhone ? "center" : "left" }}>
-			<div className="design" style={{ display: isPhone ? "none" : "initial" }}></div>
-
 			<div className="intro-container">
-				<img id="profile-img" src={profileImage} alt="profile" />
-				<h1>
-					Hello! <br /> My name is Mark Sigilai and I'm a Software Engineering Student.
+				<img id="profile-img" class="intro" src={profileImage} alt="profile" />
+				<h1 class="intro">
+					Hello! <br /> My name is <span id="name">Mark Sigilai</span> and I'm a Junior Software Engineer.
 				</h1>
-				<div>
-					Currently, I am completing my final semester of classes in university, and actively looking for new experiences! I am
-					really passionate and adaptable to any new situation. I interests in Web Development, Software Testing, Complex
-					Algorithms, etc and enjoy the learning experience that comes with it.
+				<div class="intro">
+					Currently, I am completing my final semester in university, and actively looking for new experiences! <br />
+					<br />
+					Super passionate about Web Development, Complex Algorithms, and really enjoy the challenges that come with solving
+					coding problems.
 				</div>
 			</div>
 

@@ -4,70 +4,75 @@ import "./Project.css";
 import { Power2, gsap } from "gsap";
 
 class Project extends Component {
-	constructor(props) {
-		super(props);
-		this.container = createRef();
-		this.banner = createRef();
-		this.title = createRef();
-		this.subtitle = createRef();
-
-		this.projects = createRef();
-	}
-
 	async componentDidMount() {
-		await this.title.current;
-		await this.subtitle.current;
-		await this.container.current;
-		await this.banner.current;
+		var tl = gsap.timeline();
 
-		var tl = gsap.timeline({});
-
-		tl.from(this.banner.container, {
-			scrollTrigger: {
-				animation: tl,
-				toggleActions: "restart reverse restart reverse",
-				trigger: this.banner.current,
-				start: "top top",
-				end: "bottom center",
-				markers: false,
-				pin: true,
-			},
-		}).from([this.title.current, this.subtitle.current], 0.4, {
-			y: -30,
+		tl.from(["#title"], {
 			ease: Power2.easeOut,
 			opacity: 0,
-			stagger: 0.1,
+			stagger: 0.2,
 
 			scrollTrigger: {
 				toggleActions: "restart reverse restart reverse",
-				trigger: this.banner.current,
+				trigger: ["#title"],
+				start: "+=100 center",
+				end: "+=200 10%",
+				markers: false,
+				scrub: 0.1,
+				pin: true,
+			},
+		}).from(["#subtitle"], {
+			ease: Power2.easeOut,
+			opacity: 0,
+			stagger: 0.2,
+
+			scrollTrigger: {
+				toggleActions: "restart reverse restart reverse",
+				trigger: ["#subtitle"],
 				start: "top 80%",
 				markers: false,
 				scrub: 0.1,
 			},
 		});
 
-		gsap.from(".project", {
-			y: -30,
-			ease: Power2.easeOut,
-			opacity: 0,
-			stagger: 0.1,
+		var projects = gsap.utils.toArray(".project");
 
-			scrollTrigger: {
-				toggleActions: "restart reverse restart reverse",
-				trigger: ".project",
-				start: "top 60%",
-				markers: true,
-			},
+		projects.forEach((project) => {
+			tl.from(project, {
+				y: -10,
+				ease: Power2.easeOut,
+				opacity: 0,
+				stagger: 0.1,
+				delay: 0.1,
+
+				scrollTrigger: {
+					trigger: project,
+					start: "center 70%",
+					end: "center 30%",
+					markers: true,
+					scrub: 0.1,
+				},
+			}).to(project, {
+				opacity: 0.5,
+				y: -10,
+				ease: Power2.easeOut,
+				scrollTrigger: {
+					trigger: project,
+					start: "center 30%",
+					end: "+=60",
+					markers: true,
+					scrub: 0.1,
+				},
+			});
 		});
 	}
 
 	render() {
 		const projects = [
 			{
-				title: "Stock Trading Simulator",
+				title: "Stock Trading App",
 				description:
-					"A scalable stock trading app where users can create accounts, add virtual funds and complete trading transactions.",
+					"A full stack web application that supports authentication, adding virtual funds and completing simple trading transactions. This is a distributed system with a microservices architecture that allowed for horizontal and vertical scaling of its components.",
 				github: "https://github.com/marksigilai/stock-trading-app/",
 				languages: [
 					{ language: "Python" },
@@ -79,9 +84,23 @@ class Project extends Component {
 				],
 			},
 			{
+				title: "Schedulater",
+				description:
+					"An implementation of the genetic algorithm for solving an optimization problem - the course scheduling problem. Able to find an optimal solution within 3.5 seconds.",
+				github: "https://github.com/marksigilai/log-file-system",
+				languages: [{ language: "Go" }],
+			},
+			{
+				title: "Space Shooter",
+				description:
+					"An infinite game built using C++, with the OpenGl and GLUT libraries. Objective of the game is to dodge obstacles and/or shoot as many obstacles as possible to obtain points.",
+				github: "https://github.com/marksigilai/log-file-system",
+				languages: [{ language: "C++" }, { language: "OpenGL" }, { language: "GLUT" }],
+			},
+			{
 				title: "Personal Website",
 				description:
-					"It is intended to have all the relevant info from my resume, and later iterations will have a blog, admin account for dynamic data management, and posts about my other hobbies.",
+					"A website containing information on my personal experience and accomplishments, as well as being a project where I could learn and experiment with web development, especially front end work. ",
 				github: "https://github.com/marksigilai/personal-website",
 				languages: [{ language: "React" }, { language: "HTML" }, { language: "CSS" }],
 			},
@@ -92,6 +111,7 @@ class Project extends Component {
 				github: "https://github.com/marksigilai/worm-scheduler",
 				languages: [{ language: "C" }],
 			},
+
 			{
 				title: "Log File System",
 				description:
@@ -102,16 +122,16 @@ class Project extends Component {
 		];
 
 		return (
-			<div ref={this.container} className="container">
-				<div ref={this.banner} className="banner">
-					<h1 ref={this.title}>...my projects</h1>
-					<p ref={this.subtitle}> a list of some of the recent school and personal projects I have worked on.</p>
+			<div className="container">
+				<div className="banner">
+					<h1 id="title">...my projects</h1>
+					<p id="subtitle"> a list of some of the recent school and personal projects I have worked on.</p>
 				</div>
 
 				<div className="projects">
 					{projects.map((project) => {
 						return (
-							<div ref={this.projects} className="project">
+							<div className="project">
 								<h2 className="title">{project.title} </h2>
 
 								<div key={project.id} timeout={10} classNames="slide">

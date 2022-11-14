@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./contactus.module.css";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { Power3, gsap } from "gsap";
 
 class ContactUs extends Component {
 	constructor(props) {
@@ -18,6 +19,23 @@ class ContactUs extends Component {
 	componentDidMount() {
 		this.updateWindowDimensions();
 		window.addEventListener("resize", this.updateWindowDimensions);
+
+		var tl2 = gsap.timeline();
+
+		tl2.from(["#heading", "#subheading", "#forms_container"], {
+			opacity: 0,
+			duration: 1.8,
+			ease: Power3.easeInOut,
+			y: -10,
+			stagger: 0.3,
+			scrollTrigger: {
+				toggleActions: "restart reverse restart reverse",
+				trigger: ["#heading", "#subheading", "#forms_container"],
+				start: "top 80%",
+				markers: true,
+				scrub: 0.1,
+			},
+		});
 	}
 
 	componentWillUnmount() {
@@ -40,8 +58,12 @@ class ContactUs extends Component {
 			<div className={styles.container} id="container">
 				<div className={styles.main}>
 					<div>
-						<h1 className={styles.heading}>contact me.</h1>
-						<p className={styles.subheading}>Feel free to contact me through the phone or email below </p>
+						<h1 className={styles.heading} id="heading">
+							contact me
+						</h1>
+						<p className={styles.subheading} id="subheading">
+							Feel free to contact me through the phone or email below{" "}
+						</p>
 					</div>
 
 					<div className={styles.content} id="forms_container">
@@ -73,22 +95,9 @@ class ContactUs extends Component {
 								</button>
 							</CopyToClipboard>
 							<a href="tel:2368826885" className={styles.sp2}>
-								(236) 882 4370
+								(236) 882 6885
 							</a>
 						</p>
-
-						<form className={styles.links_container} action="http://www.facebook.com">
-							<button type="submit" className={styles.links}>
-								<h2>Facebook</h2>
-							</button>
-						</form>
-
-						<form className={styles.links_container} action="http://www.instagram.com">
-							<button type="submit" className={styles.links}>
-								<h2>Instagram</h2>
-							</button>
-						</form>
-
 						<form className={styles.links_container} action="http://www.linkedin.com">
 							<button type="submit" className={styles.links}>
 								<h2>LinkedIn</h2>
@@ -98,6 +107,17 @@ class ContactUs extends Component {
 						<form className={styles.links_container} action="http://www.github.com/marksigilai">
 							<button type="submit" className={styles.links}>
 								<h2>Github</h2>
+							</button>
+						</form>
+						<form className={styles.links_container} action="http://www.facebook.com">
+							<button type="submit" className={styles.links}>
+								<h2>Facebook</h2>
+							</button>
+						</form>
+
+						<form className={styles.links_container} action="http://www.instagram.com">
+							<button type="submit" className={styles.links}>
+								<h2>Instagram</h2>
 							</button>
 						</form>
 					</div>

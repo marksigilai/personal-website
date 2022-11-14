@@ -29,16 +29,15 @@ const AboutMe = () => {
 			})
 			.to([".intro-container", ".sections"], {
 				opacity: 0,
-				duration: 0.1,
 				ease: Power2.easeInOut,
 				scale: 0.5,
 
 				scrollTrigger: {
 					trigger: [".sections"],
 					start: "bottom 100%",
-					end: "bottom 50%",
-					markers: true,
-					scrub: 0.1,
+					end: "bottom 20%",
+					markers: false,
+					scrub: 0.4,
 				},
 			});
 	});

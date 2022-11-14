@@ -32,7 +32,7 @@ class ContactUs extends Component {
 				toggleActions: "restart reverse restart reverse",
 				trigger: ["#heading", "#subheading", "#forms_container"],
 				start: "top 80%",
-				markers: true,
+				markers: false,
 				scrub: 0.1,
 			},
 		});

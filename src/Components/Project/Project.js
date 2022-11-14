@@ -49,7 +49,7 @@ class Project extends Component {
 					trigger: project,
 					start: "center 70%",
 					end: "center 30%",
-					markers: true,
+					markers: false,
 					scrub: 0.1,
 				},
 			}).to(project, {
@@ -60,7 +60,7 @@ class Project extends Component {
 					trigger: project,
 					start: "center 30%",
 					end: "+=60",
-					markers: true,
+					markers: false,
 					scrub: 0.1,
 				},
 			});

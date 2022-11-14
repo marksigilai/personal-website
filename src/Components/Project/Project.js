@@ -52,17 +52,6 @@ class Project extends Component {
 					markers: false,
 					scrub: 0.1,
 				},
-			}).to(project, {
-				opacity: 0.5,
-				y: -10,
-				ease: Power2.easeOut,
-				scrollTrigger: {
-					trigger: project,
-					start: "center 30%",
-					end: "+=60",
-					markers: false,
-					scrub: 0.1,
-				},
 			});
 		});
 	}

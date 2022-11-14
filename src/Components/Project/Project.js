@@ -1,4 +1,4 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import Language from "../Language/Language";
 import "./Project.css";
 import { Power2, gsap } from "gsap";
